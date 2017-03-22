@@ -9,5 +9,7 @@
 // täiendame jooksvalt
 define('CALSSES_DIR', 'classes/'); //classes kataloogi konstant
 define('TMPL_DIR', 'tmpl/'); //template konstant. konstandid kirjutatakse alati suurte tähtedega
+//võtame kasutusele vajalikud failid
+require_once CALSSES_DIR . 'template.php';
 ?>
 

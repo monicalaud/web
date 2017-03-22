@@ -9,4 +9,5 @@
 require_once 'conf.php';
 //pealehe sisu sisselugemine
 echo '<h1>veebriprogrameerimise esimene leht</h1>';
+
 ?>
