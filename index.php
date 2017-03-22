@@ -22,4 +22,5 @@ $main_tmpl->set('content', 'sisu');
 
 $main_tmpl->set('site_title', 'Veebiprogrammeerimise kursus');
 echo $main_tmpl->parse();
+require_once 'menu.php';
 ?>
