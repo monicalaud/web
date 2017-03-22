@@ -58,5 +58,10 @@ class template
     {
         $this->content = file_get_contents($f); //html faili sisu , contendid tulid juba valikust
     }//readFile
-}
-//classi lõpp
+
+    //koostame paarid malli_element => reaalne_väärtus
+    function set($name, $val)
+    {
+        $this->vars [$name] = $val;
+    }
+}//classi lõpp
