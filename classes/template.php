@@ -23,19 +23,22 @@ class template
     //html faili sisu lugemine
     function loadFile()
     {
-        $f = $this->file; //lokaalme asendus
-        //kontrollime kas template dir on olemas
+        $f = $this->file; // lokaalne asendus
+        // kontrollime mallide kausta olemasolu
         if (!is_dir(TMPL_DIR)) {
-            echo 'Kataloogi.' . TMPL_DIR . 'ei leitud<br />';
-             exit;
+            echo 'Kataloogi ' . TMPL_DIR . ' ei ole leitud<br />';
+            exit;
         }
-        //kui fail on olemas ja lugemiseks sobib , loeme failist malli sisu
-        $this->readFile($f);
-    }
-if ($this->content === false)
-{
-echo 'ei suutnud lugeda faili '.$this->file.'<br />';
-}// loadFile
+        // kui fail on olemas ja lugemiseks sobiv
+        if (file_exists($f) and is_file($f) and is_readable($f)) {
+            // loeme failist malli sisu
+            $this->readFile($f);
+        }
+        // kui sisu ei olnud võimalik lugeda
+        if ($this->content === false) {
+            echo 'Ei suutnud lugeda faili ' . $this->file . '<br />';
+        }
+    }// loadFile
     // loeme faili sisu html faili  mallist
     function readFile($f)
     {
