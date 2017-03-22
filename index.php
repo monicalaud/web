@@ -11,6 +11,12 @@ require_once 'conf.php';
 echo '<h1>veebriprogrameerimise esimene leht</h1>';
 //valmistame peamalli objekti
 $main_tmpl = new template('main');
+//valmistame paarid_mallielement =>väärtus
+$main_tmpl->set('user', 'Kasutajanimi');
+$main_tmpl->set('title', pealkiri);
+$main_tmpl->set('lang-bar', keeleriba);
+$main_tmpl->set('menu', lehe peamenüü);
+$main_tmpl->set('content', sisu);
 //kontrollime antud objekti sisu
 echo '<pre>';
 print_r($main_tmpl);
