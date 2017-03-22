@@ -13,6 +13,13 @@ class template
     var $content = false; //sisu veel puudub, html faili sisu
     var $vars = array(); //tyhi massiiv, html vaate sisu, reaalsed väärtused
 
+    //klassi konstruktor
+    function __construct($f)
+    {
+        $this->file = $f; //määrame html faili nime
+        $this->loadFile(); //loeme määratud failist sisu
+    }//konstruktor
+
     //html faili sisu lugemine
     function loadFile()
     {
