@@ -73,5 +73,8 @@ class template
         foreach ($this->vars as $name => $val) {
             $str = str_replace('{' . $name . '}', $val, $str);
         }
-    }
-}//classi lõpp
+        // tagastame täis täidetud malli sisu
+        return $str;
+    }// parse
+}// klassi lõpp
+?>
