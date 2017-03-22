@@ -18,7 +18,7 @@ $main_tmpl->set('lang-bar', 'keeleriba');
 $main_tmpl->set('menu', 'lehe peamenüü');
 $main_tmpl->set('content', 'sisu');
 //kontrollime antud objekti sisu
-$main_tmpl->parse();
-echo '</pre>';
+
+
 echo $main_tmpl->parse();
 ?>
