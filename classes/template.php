@@ -34,6 +34,14 @@ class template
             // loeme failist malli sisu
             $this->readFile($f);
         }
+
+        // lisame TMPL_DIR KASUTUSELE
+        $f = TMPL_DIR . $this->file; //veel yks lokaalne kasutus
+        if (file_exists($f) and is_file($f) and is_readable($f)) {
+            // loeme failist malli sisu
+            $this->readFile($f);
+        }
+
         // kui sisu ei olnud võimalik lugeda
         if ($this->content === false) {
             echo 'Ei suutnud lugeda faili ' . $this->file . '<br />';
