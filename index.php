@@ -10,7 +10,7 @@ require_once 'conf.php';
 //pealehe sisu sisselugemine
 echo '<h1>veebriprogrameerimise esimene leht</h1>';
 //valmistame peamalli objekti
-$main_tmpl = new template(TMPL_DIR . 'main.html');
+$main_tmpl = new template('main.html');
 //kontrollime antud objekti sisu
 echo '<pre>';
 print_r($main_tmpl);
