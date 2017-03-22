@@ -13,12 +13,12 @@ echo '<h1>veebriprogrameerimise esimene leht</h1>';
 $main_tmpl = new template('main');
 //valmistame paarid_mallielement =>väärtus
 $main_tmpl->set('user', 'Kasutajanimi');
-$main_tmpl->set('title', pealkiri);
-$main_tmpl->set('lang-bar', keeleriba);
-$main_tmpl->set('menu', lehe peamenüü);
-$main_tmpl->set('content', sisu);
+$main_tmpl->set('title', 'pealkiri');
+$main_tmpl->set('lang-bar', 'keeleriba');
+$main_tmpl->set('menu', 'lehe peamenüü');
+$main_tmpl->set('content', 'sisu');
 //kontrollime antud objekti sisu
-echo '<pre>';
-print_r($main_tmpl);
+$main_tmpl->parse();
 echo '</pre>';
+echo $main_tmpl->parse();
 ?>
