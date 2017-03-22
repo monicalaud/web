@@ -19,7 +19,7 @@ class template
         $f = $this->file; //lokaalme asendus
         //kontrollime kas template dir on olemas
         if (!is_dir(TMPL_DIR)) {
-            echo 'Kataloogi.'TMPL_DIR'.ei leitud</br>';
+            echo 'Kataloogi.' . TMPL_DIR . 'ei leitud<br />';
              exit;
         }
         //kui fail on olemas ja lugemiseks sobib , loeme failist malli sisu
