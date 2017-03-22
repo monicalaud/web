@@ -41,6 +41,12 @@ class template
             // loeme failist malli sisu
             $this->readFile($f);
         }
+        // lisame .html laienduse kasutuse
+        $f = TMPL_DIR . $this->file . '.html'; //veel yks lokaalne kasutus
+        if (file_exists($f) and is_file($f) and is_readable($f)) {
+            // loeme failist malli sisu
+            $this->readFile($f);
+        }
 
         // kui sisu ei olnud võimalik lugeda
         if ($this->content === false) {
