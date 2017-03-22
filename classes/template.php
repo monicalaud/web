@@ -64,4 +64,14 @@ class template
     {
         $this->vars [$name] = $val;
     }//set
+
+    //html malli täitminereaalse sisuga
+    function parse()
+    {
+        $str = $this->content; //lokaalne lyhendus
+        //vaatame malli elemente läbi
+        foreach ($this->vars as $name => $val) {
+            $str = str_replace('{' . $name . '}', $val, $str);
+        }
+    }
 }//classi lõpp
