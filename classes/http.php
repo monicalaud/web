@@ -11,7 +11,13 @@ class http
     //klassi muutujad
     var $vars = array(); //http päringute andmed, massiiv
     var $server = array(); //serveri andmed
-
+//klassi konstruktor
+    //kutsub initi tööle
+    function __construct()
+    {
+        $this->init();
+        $this->initCont();
+    }
     //klassi meetodid
     //paneme algandmed paika- initsialiseerimie
     function init()
