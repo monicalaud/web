@@ -10,8 +10,14 @@ $menu = new template('menu.menu');
 $item = new template('menu.item');
 //lisame sisu
 $item->set('name', 'esimene');
+//loome menyy elemendi lingi
+$link = $http->getLink(array('act' => 'first'));
+//lisame lingi menyyse
+$item->set('link', $link);
 $menu->set('items', $item->parse());
 $item->set('name', 'teine');
+$link = $http->getLink(array('act' => 'second'));
+$item->set('link', $link);
 $menu->add('items', $item->parse());
 
 //kontrollime objekti sisu
