@@ -76,6 +76,17 @@ class template
         $this->vars [$name] = $val;
     }//set
 
+    //funktsioon mis lisab väärtus ejuurde kui element olemas
+    function add($name, $val)
+    {
+        if (!isset($this->vars[$name])) {
+            $this->set($name, $val); //kui natud nimega elementi ei eksisteeri, siis lisatakse
+        } else {
+            $this->vars[$name] = $this->vars [$name] . $val;
+        }
+
+    }
+
     //html malli täitminereaalse sisuga
     function parse()
     {
