@@ -19,4 +19,17 @@ class http
         $this->vars = array_merge($_GET, $_POST, $_FILES);
         $this->server = $_SERVER;
     }//init
+
+    //defineerime vajalikud konstandid
+    function initCont()
+    {
+        $consts = array('REMOTE_ADDR', 'HTTP_HOST', 'PHP-SELF', 'SCRIPT_NAME');
+        //MASSIIVITÖÖTLUSETSYKKEL
+        foreach ($consts as $const) {
+            if (!defined($const) and isset($this->server [$const])) {
+                define($const, $this->server[$const]);
+            }
+        }
+    }//initconst
+
 }//klassi lõpp
