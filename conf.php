@@ -9,6 +9,9 @@
 // täiendame jooksvalt
 define('CLASSES_DIR', 'classes/'); //classes kataloogi konstant
 define('TMPL_DIR', 'tmpl/'); //template konstant. konstandid kirjutatakse alati suurte tähtedega
+define('LIB_DIR', 'lib/'); // lib kataloogi nime konst
+//võtame kasutusele abifunktsiooni
+require_once LIB_DIR . 'utils.php';
 //võtame kasutusele vajalikud failid
 require_once CLASSES_DIR . 'template.php';
 require_once CLASSES_DIR . 'http.php';
