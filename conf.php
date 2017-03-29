@@ -20,6 +20,8 @@ require_once CLASSES_DIR . 'linkobject.php';
 $http = new linkobject();
 //testime LINCobjekti tööd
 echo $http->baseUrl;
+
+
 //echo '<pre>':
 //print_r($http);
 ?>
