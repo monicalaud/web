@@ -12,7 +12,7 @@ $item = new template('menu.item');
 $item->set('name', 'esimene');
 $menu->set('item', $item->parse());
 $item->set('name', 'teine');
-$menu->set('item', $item->parse());
+$menu->add('item', $item->parse());
 
 //kontrollime objekti sisu
 echo '<pre>';
