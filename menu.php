@@ -15,8 +15,6 @@ $item->set('name', 'teine');
 $menu->add('item', $item->parse());
 
 //kontrollime objekti sisu
-echo '<pre>';
-print_r($menu);
-print_r($item);
-echo '<pre>';
+//kui soovime asendada siis set funktsioon add asemel, add paneks kõik uuendused otsa
+$main_tmpl->add('menu', $menu->parse());
 ?>
