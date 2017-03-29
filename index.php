@@ -14,7 +14,7 @@ $main_tmpl = new template('main');
 //valmistame paarid_mallielement =>väärtus
 $main_tmpl->set('user', 'Kasutajanimi');
 $main_tmpl->set('title', 'pealkiri');
-$main_tmpl->set('lang-bar', 'keeleriba');
+$main_tmpl->set('lang_bar', 'keeleriba');
 $main_tmpl->set('menu', 'lehe peamenüü');
 //kutsume menüü tööle
 require_once 'menu.php';

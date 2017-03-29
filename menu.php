@@ -10,9 +10,9 @@ $menu = new template('menu.menu');
 $item = new template('menu.item');
 //lisame sisu
 $item->set('name', 'esimene');
-$menu->set('item', $item->parse());
+$menu->set('items', $item->parse());
 $item->set('name', 'teine');
-$menu->add('item', $item->parse());
+$menu->add('items', $item->parse());
 
 //kontrollime objekti sisu
 //kui soovime asendada siis set funktsioon add asemel, add paneks kõik uuendused otsa
