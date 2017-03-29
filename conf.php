@@ -12,6 +12,7 @@ define('TMPL_DIR', 'tmpl/'); //template konstant. konstandid kirjutatakse alati 
 //võtame kasutusele vajalikud failid
 require_once CLASSES_DIR . 'template.php';
 require_once CLASSES_DIR . 'http.php';
+require_once CLASSES_DIR . 'linkobject.php';
 //LOOME     vajalikud objektid projekti tööks
 $http = new http();
 //testime http objekti tööd
