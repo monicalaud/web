@@ -12,6 +12,8 @@ define('TMPL_DIR', 'tmpl/'); //template konstant. konstandid kirjutatakse alati 
 define('LIB_DIR', 'lib/'); // lib kataloogi nime konst
 define('ACTS_DIR', 'acts/'); //acts kataloogi konf koostamine
 
+define('DEFAULT-_ACT', 'default'); //vaikimisi tegevuste faili nime muutmine
+
 //võtame kasutusele abifunktsiooni
 require_once LIB_DIR . 'utils.php';
 //võtame kasutusele vajalikud failid
