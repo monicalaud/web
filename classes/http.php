@@ -51,7 +51,7 @@ class http
     //lisame vajaliku väärtused veebi kujul nimi=väärtus
     function set($name, $val)
     {
-        $this->$vars[$name] = $val;
+        $this->vars[$name] = $val;
     }
 
 }//klassi lõpp
