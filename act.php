@@ -13,7 +13,8 @@ if (file_exists($fn) and is_file($fn) and is_readable($fn)) {
     require_once $fn;
 
 } else {
-    $fn = ACTS_DIR . 'default' . '.php';
+    $fn = ACTS_DIR . DEFAULT_ACT . '.php';
+    $http->set('act', DEFAULT_ACT); //PANEME DEFAULT VÄÄRTUSEKS  ACT=DEFAULT
     require_once $fn;
 }
 ?>
