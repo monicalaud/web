@@ -18,7 +18,8 @@ $main_tmpl->set('lang_bar', 'keeleriba');
 $main_tmpl->set('menu', 'lehe peamenüü');
 //kutsume menüü tööle
 require_once 'menu.php';
-$main_tmpl->set('content', 'Lehe sisu');
+
+require_once 'act.php';
 
 //kontrollime antud objekti sisu
 
