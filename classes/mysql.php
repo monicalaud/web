@@ -15,25 +15,40 @@ class mysql
     var $pass = false;
     var $dbname = false;
 
-} //klassi lõpp
-function __construct($h, $u, $p, $dn)
-{
-    $this->host = $h;
-    $this->user = $u;
-    $this->pass = $p;
-    $this->dbname = $dn;
-    $this->connect();
-        
-}
+    function __construct($h, $u, $p, $dn)
+    {
+        $this->host = $h;
+        $this->user = $u;
+        $this->pass = $p;
+        $this->dbname = $dn;
+        $this->connect();
 
-function connect()
-{
-    $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->dbname);
-    if (mysqli_connect_error()) {
-        echo 'viga andmebaasiserveriga yhenduses<br/>';
-        exit;
     }
 
+    function connect()
+    {
+        $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->dbname);
+        if (mysqli_connect_error()) {
+            echo 'viga andmebaasiserveriga yhenduses<br/>';
+            exit;
+        }
 
-}//connect
+
+    }//connect
+
+    //paringu teostamine
+    function query($sql)
+    {
+        $res = mysqli_query($this->conn, $sql);
+        if ($res == false) {
+            echo 'viga paringus<br/>';
+            echo '<b>' . $sql . '<br/>';
+            echo mysqli_errno($this->conn) . '<br/>';
+            exit;
+        }
+        return $res;
+    }//query
+
+} //klassi lõpp
+
 ?>
