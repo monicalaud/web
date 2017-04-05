@@ -13,6 +13,7 @@ if (file_exists($fn) and is_file($fn) and is_readable($fn)) {
     require_once $fn;
 
 } else {
-    echo 'sobivat faili ei ole';
+    $fn = ACTS_DIR . 'default' . '.php';
+    require_once $fn;
 }
 ?>
