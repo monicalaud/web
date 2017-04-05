@@ -38,4 +38,14 @@ class http
         }
     }//initconst
 
+    //lisame funktsiooni mis võimnaldab veebis olevad anmded kätte saada (nagu $_POST)
+    //tegelikult lingi kaudu saadud, emuleerime
+    function get($name)
+    {
+        if ($this->vars[$name]) {
+            return $this->vars[$name];
+        }
+        return false;
+    }//get
+
 }//klassi lõpp
