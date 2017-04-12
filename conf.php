@@ -13,7 +13,8 @@ define('LIB_DIR', 'lib/'); // lib kataloogi nime konst
 define('ACTS_DIR', 'acts/'); //acts kataloogi konf koostamine
 
 define('DEFAULT_ACT', 'default'); //vaikimisi tegevuste faili nime muutmine
-
+//keele moodul
+define('DEFAULT_LANG', 'et');
 //võtame kasutusele abifunktsiooni
 require_once LIB_DIR . 'utils.php';
 require_once 'db_conf.php'; //loeme andmebaasi konf sisse
