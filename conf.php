@@ -7,6 +7,7 @@
  */
 // defineerime muutumatud asjad - konstandid
 // täiendame jooksvalt
+//error_reporting(0);
 define('CLASSES_DIR', 'classes/'); //classes kataloogi konstant
 define('TMPL_DIR', 'tmpl/'); //template konstant. konstandid kirjutatakse alati suurte tähtedega
 define('LIB_DIR', 'lib/'); // lib kataloogi nime konst
@@ -27,15 +28,17 @@ require_once CLASSES_DIR . 'mysql.php';
 $http = new linkobject();
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 //keele tugi
-$lang_id = DEFAULT_LANG;
-$http->set('lang_id', $lang_id);
+
+//get lang_id from url
+$lang_id = $http->get('lang_id');
+
+
 $siteLangs = array(
     'et' => 'estonian',
     'en' => 'english',
     'ru' => 'russian'
 );
-//get lang_id from url
-$lang_id = $http->get('lang_id');
+
 if (!isset ($siteLangs[$lang_id])) {
     //if such lang id is not support
     $lang_id = DEFAULT_LANG; //ET
