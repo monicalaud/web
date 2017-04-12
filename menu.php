@@ -9,6 +9,12 @@
 $menu = new template('menu.menu');
 $item = new template('menu.item');
 //lisame sisu
+//sql lause, mis saab menyy jaoks vajalikud andmed
+$sql = 'SELECT content_id, title FROM content WHERE' .
+    parent =
+
+
+
 $item->set('name', 'esimene');
 //loome menyy elemendi lingi
 $link = $http->getLink(array('act' => 'first'));

@@ -66,5 +66,5 @@ class mysql
 
     }
     //klassi lõpp
-
+}
 ?>
