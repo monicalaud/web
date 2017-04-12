@@ -58,11 +58,11 @@ class mysql
         $data = array();
         while ($row = mysqli_fetch_assoc($res)) {
             $data [] = $row;
-            if (count($data) == 0) {
-                return false;
-            }
-            return $data;
         }
+        if (count($data) == 0) {
+            return false;
+        }
+        return $data;
 
     }
     //klassi lõpp
