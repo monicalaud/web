@@ -20,7 +20,7 @@ $main_tmpl->set('menu', 'lehe peamenüü');
 require_once 'menu.php';
 //tõstsime vaikimisi degevuse default faili sisse
 require_once 'act.php';
-
+$tmpl->set('lang_bar', LANG_ID);
 //kontrollime antud objekti sisu
 
 $main_tmpl->set('site_title', 'Veebiprogrammeerimise kursus');
