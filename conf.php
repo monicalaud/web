@@ -25,11 +25,6 @@ require_once CLASSES_DIR . 'mysql.php';
 //LOOME     vajalikud objektid projekti tööks
 $http = new linkobject();
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-//testime andmebaasi konfi
-//testime LINCobjekti tööd
-$res = $db->getArray('SELECT NOW()');
-echo '<pre>';
-print_r($res);
-echo '</pre>';
+
 ?>
 

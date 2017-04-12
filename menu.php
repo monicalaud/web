@@ -13,10 +13,7 @@ $item = new template('menu.item');
 $sql = 'SELECT content_id, title FROM content WHERE ' .
     'parent_id=' . fixDb(0) . ' AND show_in_menu=' . fixDb(1);
 //saame päringu tulemuse
-echo $sql;
 $res = $db->getArray($sql);
-echo '<pre>';
-print_r($res);
 //tulemuse sisu kontroll
 if ($res != false) {
     foreach ($res as $page) {
