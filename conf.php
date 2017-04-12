@@ -26,6 +26,22 @@ require_once CLASSES_DIR . 'mysql.php';
 //LOOME     vajalikud objektid projekti tööks
 $http = new linkobject();
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+//keele tugi
+$lang_id = DEFAULT_LANG;
+$http->set('lang_id', $lang_id);
+$siteLangs = array(
+    'et' => 'estonian',
+    'en' => 'english',
+    'ru' => 'russian'
+);
+//get lang_id from url
+$lang_id = $http->get('lang_id');
+if (!isset ($siteLangs[$lang_id])) {
+    //if such lang id is not support
+    $lang_id = DEFAULT_LANG; //ET
+    $http->set('lang_id', $lang_id);
+}
+define('LANG_ID', $lang_id);
 
 ?>
 
