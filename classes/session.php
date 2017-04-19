@@ -58,7 +58,23 @@ class session
         //lisame väärtused veebi
         $this->http->set('sid', $sid);
 
-
+        //sessioni kontroll
+        function checkSession()
+        {
+            $this->clearSessions();
+            //kui sid on puudu ja anonyymne on lubatud
+            //tekitame alustamiseks anonyymse sessiooni
+            if ($this->sid === false and $this->anonymous) {
+                $this->createSession();
+            }
+            //kui aga sid onm olemas
+            if ($this->sid !== false) {
+                //võtame andmed sessioni tabelist
+                //antud id seotud
+                $sql = 'SELECT * FROM session WHERE' .
+                    'sid=' . fixDb->db->getArray($sql);
+            }
+        }
     }//sessioni loomise lõpp
 
 //sessiooni tabeli puhastus
