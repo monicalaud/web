@@ -26,7 +26,7 @@ require_once CLASSES_DIR . 'http.php';
 require_once CLASSES_DIR . 'linkobject.php';
 require_once CLASSES_DIR . 'mysql.php';
 //LOOME     vajalikud objektid projekti tööks
-$http = new linkobject();
+$http = new linkobject();  //tegeleb andmete liikumisega
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 //keele tugi
 //lehel kasutatud keeled
