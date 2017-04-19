@@ -41,13 +41,13 @@ class session
             );
         }//kas kasutaja on anonyymne -- lõpp
         //loome sessioni idendifikaatori id loomine
-        $sid = md5(uniqid(time(), mt_rand(1, 1000), true));
+        $sid = md5(uniqid(time() . mt_rand(1, 1000), true));
         //pärimg sessioni andmete salvestamiseks
-        $sql = 'INSERT INTO session   SET' .
-            'sid=' . fixDb($sid) . ',' .
-            'user_id=' . fixDb($user['user_id']) . ',' .
-            'user_data=' . fixDb(serialize($user)) . ',' .
-            'login_ip=' . fixDb(REMOTE_ADDR) . ',' .
+        $sql = 'INSERT INTO session SET ' .
+            'sid=' . fixDb($sid) . ', ' .
+            'user_id=' . fixDb($user['user_id']) . ', ' .
+            'user_data=' . fixDb(serialize($user)) . ', ' .
+            'login_ip=' . fixDb(REMOTE_ADDR) . ', ' .
             'created=NOW()';
         //SISESTAME PÄRINGUD ANDMEBAASI
         $this->db->query($sql);
