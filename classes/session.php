@@ -24,5 +24,36 @@ class session
         $this->db =& $db;
     }//konstruktor
 
+    //sessioni loomise funktsioon
+    function createSession($user = false)
+    {
+        //kui kasutaja on anonyymne, mis siis tehakse
+        if ($user == false) {
+            //tekitame andmed session tabeli jaoks andmebaasis
+            $user = array(
+                'user_id' => 0,
+                'role_id' => 0,
+                'username' => 'Anonymous'
+            );
+        }//kas kasutaja on anonyymne -- lõpp
+        //loome sessioni idendifikaatori id loomine
+        $sid = md5(uniqid(time(), mt_rand(1, 1000), true));
+        //pärimg sessioni andmete salvestamiseks
+        $sql = 'INSERT INTO session   SET' .
+            'sid=' . fixDb($sid) . ',' .
+            'user_id=' . fixDb($user['user_id']) . ',' .
+            'user_data=' . fixDb(serialize($user)) . ',' .
+            'login_ip=' . fixDb(REMOTE_ADDR) . ',' .
+            'created=NOW()';
+        //SISESTAME PÄRINGUD ANDMEBAASI
+        $this->db->query($sql);
+        //määrame sid ka antud klassi muutujale var $sid
+        $this->sid = $sid;
+        //lisame väärtused veebi
+        $this->http->set('sid', $sid);
+
+
+    }//sessioni loomise lõpp
+
 
 }//klassi lõpp
