@@ -24,9 +24,8 @@ class session
         $this->http =& $http;
         $this->db =& $db;
         //võtame sessioni id kasutusele
-        $this->clearSessions();
-        $this->createSession();
         $this->sid = $http->get('sid');
+        $this->checkSession();
     }//konstruktor
 
 
@@ -57,32 +56,57 @@ class session
         $this->sid = $sid;
         //lisame väärtused veebi
         $this->http->set('sid', $sid);
-
-        //sessioni kontroll
-        function checkSession()
-        {
-            $this->clearSessions();
-            //kui sid on puudu ja anonyymne on lubatud
-            //tekitame alustamiseks anonyymse sessiooni
-            if ($this->sid === false and $this->anonymous) {
-                $this->createSession();
-            }
-            //kui aga sid onm olemas
-            if ($this->sid !== false) {
-                //võtame andmed sessioni tabelist
-                //antud id seotud
-                $sql = 'SELECT * FROM session WHERE' .
-                    'sid=' . fixDb->db->getArray($sql);
-            }
-        }
     }//sessioni loomise lõpp
 
-//sessiooni tabeli puhastus
+    //sessiooni tabeli puhastus
     function clearSessions()
     {
-        $sql = 'DELETE FROM session WHERE' .
+        $sql = 'DELETE FROM session WHERE ' .
             time() . '- UNIX_TIMESTAMP(changed)>' .
             $this->timeout;
-        $this->db->querry($sql);
-    }
+        $this->db->query($sql);
+    }// clearSessions
+
+    //sessioni kontroll
+    function checkSession()
+    {
+        $this->clearSessions();
+        //kui sid on puudu ja anonyymne on lubatud
+        //tekitame alustamiseks anonyymse sessiooni
+        if ($this->sid === false and $this->anonymous) {
+            $this->createSession();
+        }
+        //kui aga sid onm olemas
+        if ($this->sid !== false) {
+            //võtame andmed sessioni tabelist
+            //antud id seotud
+            $sql = 'SELECT * FROM session WHERE ' .
+                'sid=' . fixDb($this->sid);
+            $res = $this->db->getArray($sql);
+            if ($res == false) {
+                //kui anonyymne lubatud loome uue sessioni
+                if ($this->anonymous) {
+                    $this->createSession();
+                } else {
+                    //kui anonyymne session pole lubatud
+                    //tuleb veebist kõik andmed maha kustutada
+                    $this->sid = false;
+                    $this->http->del('sid');
+                }
+            } else {
+                //kui andmebaasisit on võimalik sessiooni andmed
+                $vars = unserialize($res[0]['svars']);
+                if (!is_array($vars)) {
+                    $vars = array();
+                }
+                $this->vars = $vars;
+                //nüüd kasutaja andmed
+                $user_data = unserialize($res[0]['user_data']);
+                $this->user_data = $user_data;
+            }
+        } else {
+            //hetkel sessioni pole
+            echo 'pole sessiooni';
+        }
+    } //checkSession
 }//klassi lõpp
