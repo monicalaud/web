@@ -18,7 +18,7 @@ require_once('lang.php');
 // import menu file
 
 //valmistame paarid_mallielement =>väärtus
-$main_tmpl->set('user', 'Kasutajanimi');
+$main_tmpl->set('user', $sess->user_data['username']);
 $main_tmpl->set('title', 'pealkiri');
 //kutsume menüü tööle
 require_once 'menu.php';
