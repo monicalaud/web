@@ -15,7 +15,8 @@ class session
     var $http = false; //objekt vebeiandmete kasutamiseks
     var $db = false; //objekt andmebaasi kasutamiseks
     var $anonymous = true; //lubame anonyymse kasutajale lehe kuvamise
-
+    //session pikkus
+    var $timeout = 1800; //30 minutit
     //klassi meetodid
     //konstruktor
     function __construct(&$http, &$db)
@@ -23,6 +24,7 @@ class session
         $this->http =& $http;
         $this->db =& $db;
         //võtame sessioni id kasutusele
+        $this->clearSessions();
         $this->createSession();
         $this->sid = $http->get('sid');
     }//konstruktor
@@ -59,5 +61,12 @@ class session
 
     }//sessioni loomise lõpp
 
-
+//sessiooni tabeli puhastus
+    function clearSessions()
+    {
+        $sql = 'DELETE FROM session WHERE' .
+            time() . '- UNIX_TIMESTAMP(changed)>' .
+            $this->timeout;
+        $this->db->querry($sql);
+    }
 }//klassi lõpp
