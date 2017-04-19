@@ -22,7 +22,11 @@ class session
     {
         $this->http =& $http;
         $this->db =& $db;
+        //võtame sessioni id kasutusele
+        $this->createSession();
+        $this->sid = $http->get('sid');
     }//konstruktor
+
 
     //sessioni loomise funktsioon
     function createSession($user = false)
