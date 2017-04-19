@@ -11,6 +11,7 @@
 define('CLASSES_DIR', 'classes/'); //classes kataloogi konstant
 define('TMPL_DIR', 'tmpl/'); //template konstant. konstandid kirjutatakse alati suurte tähtedega
 define('LIB_DIR', 'lib/'); // lib kataloogi nime konst
+define('LANG_DIR', 'lang/');
 define('ACTS_DIR', 'acts/'); //acts kataloogi konf koostamine
 
 define('DEFAULT_ACT', 'default'); //vaikimisi tegevuste faili nime muutmine
@@ -28,6 +29,7 @@ require_once CLASSES_DIR . 'mysql.php';
 $http = new linkobject();
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 //keele tugi
+//lehel kasutatud keeled
 
 //get lang_id from url
 $lang_id = $http->get('lang_id');
@@ -45,6 +47,7 @@ if (!isset ($siteLangs[$lang_id])) {
     $http->set('lang_id', $lang_id);
 }
 define('LANG_ID', $lang_id);
+require_once LIB_DIR . 'trans.php';
 
 ?>
 
