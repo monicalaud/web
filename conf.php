@@ -18,8 +18,7 @@ define('DEFAULT_ACT', 'default'); //vaikimisi tegevuste faili nime muutmine
 //keele moodul
 define('DEFAULT_LANG', 'et');
 define('ROLE_NONE', 0);
-define('ROLE_ADMIN';
-1);
+define('ROLE_ADMIN', 1);
 define('ROLE_USER', 2);
 //võtame kasutusele abifunktsiooni
 require_once LIB_DIR . 'utils.php';
