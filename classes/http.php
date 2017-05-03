@@ -61,4 +61,19 @@ class http
             unset($this->vars[$name]);
         }
     }
+
+    //suunamine
+    function redirect($url = false)
+    {
+        global $sess;
+        $sess->flush();
+        //kui $url false suunatakse pealehele
+        if ($url == false) {
+            $url = $this->getLink();
+        }
+        $url = str_replace('&aump;', '&', $url);
+        header('Location: ' . $url);
+        exit;
+    }
+}//redirect
 }//klassi lõpp
