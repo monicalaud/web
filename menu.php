@@ -27,6 +27,13 @@ if ($res != false) {
         $menu->add('items', $item->parse());
     }
 }
+
+//SISSE logimine
+
+
+
+
+
 // kontrollime objekti olemasolu ja sisu
 // kui soovime pidevat asendamist, siis set funktsioon add asemel
 $main_tmpl->add('menu', $menu->parse());
