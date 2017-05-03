@@ -32,6 +32,6 @@ require_once 'act.php';
 $main_tmpl->set('site_title', 'Veebiprogrammeerimise kursus');
 echo $main_tmpl->parse();
 //uuendame sessiooni andmed
-$sess->$flush();
+$sess->flush();
 
 ?>

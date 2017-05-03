@@ -16,6 +16,8 @@ $res = $db->getArray($sql);
 // teeme päringu tulemuse kontroll
 if ($res == false) {
     // siis tuleb suunata kasutaja sisselogimisvormi tagasi
+    $link = $http->getLink(array('act' => 'login'));
+    $http->redirect($link);
 } else {
     // sisse tuleb avada kasutajale sessiooni
     $sess->createSession($res[0]);

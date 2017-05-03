@@ -33,9 +33,7 @@ require_once CLASSES_DIR . 'session.php';
 $http = new linkobject();  //tegeleb andmete liikumisega
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $sess = new session($http, $db);
-echo '<pre>';
-print_r($sess);
-echo '</pre>';
+
 //keele tugi
 //lehel kasutatud keeled
 

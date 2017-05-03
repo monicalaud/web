@@ -37,7 +37,14 @@ if (USER_ID == ROLE_NONE) {
 
 }
 
+//VÄLJA logimine
+if (USER_ID != ROLE_NONE) {
+    $item->set('name', tr('Logi v&auml;lja'));
+    $link = $http->getLink(array('act' => 'logout'));
+    $item->set('link', $link);
+    $menu->add('items', $item->parse());
 
+}
 
 
 // kontrollime objekti olemasolu ja sisu
