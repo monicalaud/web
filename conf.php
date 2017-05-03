@@ -7,7 +7,7 @@
  */
 // defineerime muutumatud asjad - konstandid
 // täiendame jooksvalt
-//error_reporting(0);
+error_reporting(0);
 define('CLASSES_DIR', 'classes/'); //classes kataloogi konstant
 define('TMPL_DIR', 'tmpl/'); //template konstant. konstandid kirjutatakse alati suurte tähtedega
 define('LIB_DIR', 'lib/'); // lib kataloogi nime konst
@@ -22,6 +22,7 @@ define('ROLE_ADMIN', 1);
 define('ROLE_USER', 2);
 //võtame kasutusele abifunktsiooni
 require_once LIB_DIR . 'utils.php';
+require_once LIB_DIR . 'trans.php';
 require_once 'db_conf.php'; //loeme andmebaasi konf sisse
 //võtame kasutusele vajalikud failid
 require_once CLASSES_DIR . 'template.php';
@@ -42,9 +43,9 @@ $lang_id = $http->get('lang_id');
 
 
 $siteLangs = array(
-    'et' => 'estonian',
-    'en' => 'english',
-    'ru' => 'russian'
+    'et' => 'eesti',
+    'en' => 'inglise',
+    'ru' => 'vene'
 );
 
 if (!isset ($siteLangs[$lang_id])) {

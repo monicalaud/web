@@ -10,9 +10,9 @@ $login = new template('login');
 $error = $sess->get('error');
 $login->set('error', $error);
 //paneme reaalsed väärtused
-$login->set('kasutajanimi', 'Kasutaja');
-$login->set('parool', 'Parool');
-$login->set('nupp', 'Logi sisse');
+$login->set('kasutajanimi', tr('Kasutaja'));
+$login->set('parool', tr('Parool'));
+$login->set('nupp', tr('Logi sisse'));
 
 //loome lingi
 $link = $http->getLink(array('act' => 'login_do'));
