@@ -15,6 +15,8 @@ $sql = 'SELECT * FROM user ' .
 $res = $db->getArray($sql);
 // teeme päringu tulemuse kontroll
 if ($res == false) {
+    //loome veateate
+    $sess->set('error', 'Probleem sisselogimisel');
     // siis tuleb suunata kasutaja sisselogimisvormi tagasi
     $link = $http->getLink(array('act' => 'login'));
     $http->redirect($link);
