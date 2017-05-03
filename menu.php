@@ -29,7 +29,13 @@ if ($res != false) {
 }
 
 //SISSE logimine
+if (USER_ID == ROLE_NONE) {
+    $item->set('name', tr(Logi sisse));
+    $link = $http->getLink(array('act' => 'login'));
+    $item->set('link', $link);
+    $menu->add('items', $item->parse());
 
+}
 
 
 
