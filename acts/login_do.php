@@ -7,20 +7,19 @@
  */
 // võtame andmed vastu vormist
 $username = $http->get('kasutaja');
-$passwd = $passwd->get('parool');
-// koostame päringu andmebaasi
-
-$sql = ' SELECT * FROM USER' . 'WHERE username=' . fixDb($username) .
-    'AND password=' . fixDb(md5($passwd));
+$passwd = $http->get('parool');
+// koostame päringu kasutaja kontrollimiseks andmebaasis
+$sql = 'SELECT * FROM user ' .
+    'WHERE username=' . fixDb($username) .
+    ' AND password=' . fixDb(md5($passwd));
 $res = $db->getArray($sql);
-
-//teeme päriongute kontrolli
-
+// teeme päringu tulemuse kontroll
 if ($res == false) {
-    // siis tuleb kasutaja suunata uuetsi logi vormile
-
+    // siis tuleb suunata kasutaja sisselogimisvormi tagasi
 } else {
-    $sess->createSession($res [0]);
-    //tuleb kasutaja suunata pealehele
-    //kus ma väljastan kasutaja andmed sessiooni kontrolliks
+    // sisse tuleb avada kasutajale sessiooni
+    $sess->createSession($res[0]);
+    // tuleb suunata kasutajat pealehele
+    // kus ma väljastan kasutajaandmed sessiooni kontrolliks
+    $http->redirect();
 }
