@@ -6,13 +6,11 @@
  * Time: 20:33
  */
 $_trans = array(
-    'Esimene' => 'First',
-    'Teine' => 'Second';
-'Minu lehe pealkiri' => 'My page heading',
-    'Logi v�lja' => 'Logout',
-    'Kasutajanimi' => 'Username',
-    'Parool' => 'Password',
-    'Logi sisse' => 'Login',
-    'Viga sisselogimisel' => 'Login error'
+    'Esimene leht' => 'First page',
+    'Teine leht' => 'Second page',
+    'avaleht' => 'main page',
+    'Lehe peamenüü' => 'Page menu',
+    'eesti' => 'estonian',
+    'inglise' => 'english',
+    'vene' => 'russian'
 );
-?>

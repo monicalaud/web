@@ -6,31 +6,24 @@
  * Time: 12:03
  */
 //defineerime eraldaja template abil
-$sep = new Template('lang.sep');
+$sep = new template('lang.sep');
 $sep = $sep->parse();
 $count = 0;
-// koik keeled meil on konfis keelemassiivis kujul -et=>nimi
+// väljastame kõik olemasolevad keeled
 foreach ($siteLangs as $lang_id => $lang_name) {
-    //suurendame keele eraldjatae joonistamiseks
     $count++;
-    //kui tegu on aktiivse  keelega, kasutame aktiivset malli
+    // paneme keele id järgi aktiivne element
     if ($lang_id == LANG_ID) {
-        $item = new Template ('lang.active');
-    } //muidu tavaline mall
-    else {
-        $item = new Template ('lang.item');
+        $item = new template('lang.active');
+    } else {
+        $item = new template('lang.item');
     }
-    //keelte vajhhel klopsamiseks oleks vaja linkikuhu lahevad massid
+    // koostame keele riba väljund
     $link = $http->getLink(array('lang_id' => $lang_id), array('act', 'page_id'), array('lang_id'));
     $item->set('link', $link);
-    $item->set('name', $lang_name);
+    $item->set('name', tr($lang_name));
     $main_tmpl->add('lang_bar', $item->parse());
-
-    //keele eraldamiseks paneme separaatori, viimasele ei
     if ($count < count($siteLangs)) {
         $main_tmpl->add('lang_bar', $sep);
-
     }
 }
-
-
